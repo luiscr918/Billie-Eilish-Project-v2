@@ -5,8 +5,7 @@ body {
     rgb(1.0769230769, 11.5769230769, 19.9230769231) 100%
   );
   background-size: 200% 200%;
-  height: 100%;
-  width: 100%;
+
   animation: backgroundAnimation 6s ease infinite;
 }
 
@@ -43,9 +42,3 @@ body {
   background-size: 200% 200%;
   animation: backgroundAnimation 6s ease infinite;
 }
-html {
-  width: 100%;
-  height: 100%;
-}
-
-
