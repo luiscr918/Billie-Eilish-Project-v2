@@ -42,3 +42,9 @@ body {
   background-size: 200% 200%;
   animation: backgroundAnimation 6s ease infinite;
 }
+.fondito {
+  background-image: url(/src/assets/img/Billie-Eilish-index-main.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 10px;
+}
