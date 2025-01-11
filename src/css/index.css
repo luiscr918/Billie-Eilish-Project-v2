@@ -1,6 +1,7 @@
 .fondito {
   background-image: url(/src/assets/img/Billie-Eilish-index-main.jpeg);
   background-repeat: no-repeat;
+  opacity: 90%;
   background-size: cover;
   padding-top: 10px;
 }
