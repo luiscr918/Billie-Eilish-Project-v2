@@ -1,0 +1,4 @@
+/* Ajusta el valor según la altura de tu barra de navegación */
+.ajustarScroll {
+  scroll-margin-top: 80px; /* Ajusta este valor según la altura de tu barra de navegación */
+}

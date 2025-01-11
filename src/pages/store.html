@@ -11,6 +11,7 @@
 
     <!--internos-->
     <!--para fondo principal-->
+    <link rel="stylesheet" href="/src/css/store.css">
     <link rel="stylesheet" href="/src/css/fondoPagina.css" />
     <link rel="icon" href="/src/assets/img/pageIcon.svg" />
     <title>Store</title>
@@ -64,39 +65,39 @@
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
                                 aria-labelledby="dropdownLargeButton">
                                 <li>
-                                    <a href="#"
+                                    <a href="/src/pages/store.html#normalVinyl"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Normal
                                         Vinyl</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="/src/pages/store.html#limitedEditionVinyl"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Limited
                                         Edition Vinyl</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="/src/pages/store.html#misteryBoxs"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mistery
                                         Boxs(Only Holidays)</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="/src/pages/store.html#hoddies"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Hoodies</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="/src/pages/store.html#oversideTshirst"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Overside
                                         T-shirts</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="/src/pages/store.html#necklaces"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Necklaces</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="/src/pages/store.html#shoes"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Shoes</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="/src/pages/store.html#signedThings"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Signed
                                         Things</a>
                                 </li>
@@ -131,9 +132,10 @@
         </div>
     </nav>
     <!--normal vinily-->
-    <div class="font-[sans-serif] nav-animated-bg">
+    <div class="font-[sans-serif] nav-animated">
         <div class="p-4 mx-auto lg:max-w-7xl md:max-w-4xl sm:max-w-xl max-sm:max-w-sm">
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">Normal Vinyl</h2>
+            <h2 id="normalVinyl" class="ajustarScroll text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">
+                Normal Vinyl</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6">
                 <div class="bg-transparent rounded p-4 cursor-pointer hover:-translate-y-1 transition-all relative">
@@ -225,7 +227,9 @@
     <!--Limited edition vinyl-->
     <div class="font-[sans-serif] nav-animated-bg">
         <div class="p-4 mx-auto lg:max-w-7xl md:max-w-4xl sm:max-w-xl max-sm:max-w-sm">
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">Limited Edition Vinyl</h2>
+            <h2 id="limitedEditionVinyl"
+                class="ajustarScroll text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">Limited
+                Edition Vinyl</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6">
                 <div class="bg-transparent rounded p-4 cursor-pointer hover:-translate-y-1 transition-all relative">
@@ -317,7 +321,8 @@
     <!--Mistery Box-->
     <div class="font-[sans-serif] nav-animated-bg">
         <div class="p-4 mx-auto lg:max-w-7xl md:max-w-4xl sm:max-w-xl max-sm:max-w-sm">
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">Mistery Boxs</h2>
+            <h2 id="misteryBoxs" class="ajustarScroll text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">
+                Mistery Boxs</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 max-xl:gap-3 gap-6">
                 <div class="bg-transparent rounded p-4 cursor-pointer hover:-translate-y-1 transition-all relative">
@@ -388,7 +393,7 @@
     </div>
     <!--hoddies-->
     <div class="font-sans p-4 mx-auto lg:max-w-6xl md:max-w-4xl">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">Hoddies</h2>
+        <h2 id="hoddies" class="ajustarScroll text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">Hoddies</h2>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             <div
@@ -562,7 +567,9 @@
     </div>
     <!--Overside t-shirts-->
     <div class="font-sans p-4 mx-auto lg:max-w-6xl md:max-w-4xl">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">Overside T-shirts</h2>
+        <h2 id="oversideTshirst" class="ajustarScroll text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">
+            Overside T-shirts
+        </h2>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             <div
@@ -737,7 +744,8 @@
     <!--necklaces-->
     <div class="font-[sans-serif] nav-animated-bg">
         <div class="p-4 mx-auto lg:max-w-7xl md:max-w-4xl sm:max-w-xl max-sm:max-w-sm">
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">Necklaces</h2>
+            <h2 id="necklaces" class="ajustarScroll text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">
+                Necklaces</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6">
                 <div class="bg-transparent rounded p-4 cursor-pointer hover:-translate-y-1 transition-all relative">
@@ -829,7 +837,7 @@
     <!--Shoes-->
     <div class="font-[sans-serif] nav-animated-bg">
         <div class=" p-4 mx-auto lg:max-w-7xl md:max-w-4xl sm:max-w-xl max-sm:max-w-sm">
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">Shoes</h2>
+            <h2 id="shoes" class="ajustarScroll text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">Shoes</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6">
                 <div class="bg-transparent rounded p-4 cursor-pointer hover:-translate-y-1 transition-all relative">
@@ -1005,7 +1013,8 @@
     <!--signed Things-->
     <div class="font-[sans-serif] nav-animated-bg">
         <div class=" p-4 mx-auto lg:max-w-7xl md:max-w-4xl sm:max-w-xl max-sm:max-w-sm">
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">Signed Things</h2>
+            <h2 id="signedThings" class="ajustarScroll text-2xl sm:text-3xl font-extrabold text-white mb-6 sm:mb-10">
+                Signed Things</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6">
                 <div class="bg-transparent rounded p-4 cursor-pointer hover:-translate-y-1 transition-all relative">
