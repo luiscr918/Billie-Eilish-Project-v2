@@ -5,7 +5,6 @@ body {
     rgb(1.0769230769, 11.5769230769, 19.9230769231) 100%
   );
   background-size: 200% 200%;
-
   animation: backgroundAnimation 6s ease infinite;
 }
 
@@ -19,8 +18,9 @@ body {
   100% {
     background-position: 0% 50%;
   }
-} /*# sourceMappingURL=index.css.map */
+}
 
+/*# sourceMappingURL=fondoPagina.css.map */
 /* CSS Code */
 .swiper-wrapper {
   width: 100%;
