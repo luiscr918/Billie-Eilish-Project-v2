@@ -102,24 +102,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   };
 
-  const cerrarConClickAfuera = () => {
-    desplegable.innerHTML = "";
-  };
-
-  if (iconoPersona) {
-    iconoPersona.addEventListener("click", (event) => {
-      event.stopPropagation();
-      desplegarVentana();
-    });
-  }
-
-  if (botonInicio2) {
-    botonInicio2.addEventListener("click", (event) => {
-      event.stopPropagation();
-      desplegarVentana();
-    });
-  }
-  if (aplastarAfuera) {
-    aplastarAfuera.addEventListener("click", cerrarConClickAfuera);
-  }
+  iconoPersona.addEventListener("click", desplegarVentana);
+  botonInicio2.addEventListener("click", desplegarVentana);
 });
