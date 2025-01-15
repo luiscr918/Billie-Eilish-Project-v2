@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const barraDesplegableBusqueda = () => {
     if (desplegable.innerHTML.trim() === "") {
       desplegable.innerHTML = `
-  <form class="max-w-md my-a mx-auto">   
+  <form id="ventanaBusqueda" class="max-w-md my-a mx-auto">   
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
       <div class="relative">
           <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-black border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search products or Categories" required />
@@ -21,22 +21,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   };
 
-  botonLupa.addEventListener("click", (event) => {
-    event.stopPropagation();
-    barraDesplegableBusqueda();
-  });
-
   /**VENTANA FLOTANTE DE INICIO DE SESION */
   const iconoPersona = document.getElementById("botonSesion");
 
   const desplegarVentana = () => {
-    /**antes de crear el html creo el link para importan mi estilo animado :) */
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "/src/css/fondoPagina.css";
+    if (desplegable.innerHTML.trim() === "") {
+      /**antes de crear el html creo el link para importan mi estilo animado :) */
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "/src/css/fondoPagina.css";
+      document.head.appendChild(link);
 
-    desplegable.innerHTML = `
-          <section  class="fixed inset-0 flex items-center justify-center z-50">
+      desplegable.innerHTML = `
+          <section id="ventanaFlotante" class="fixed inset-0 flex items-center justify-center z-50">
           <div class="flex flex-col items-center justify-center  px-6 py-5 mx-auto md:h-screen lg:py-0">
               <div
                   class=" relative w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 nav-animated-bg   dark:border-emerald-300">
@@ -85,7 +82,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                               class="w-full text-white bg-primary-600 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign
                               in</button>
                           <p class="text-sm font-light text-white dark:text-white ">
-                              Don’t have an account yet? <a href="#"
+                              Don’t have an account yet? <a href="/src/pages/signUp.html"
                                   class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
                           </p>
                       </form>
@@ -93,19 +90,29 @@ document.addEventListener("DOMContentLoaded", (event) => {
               </div>
           </div>
       </section>
-   
-  
               `;
-    // Añadir el evento de clic para cerrar la ventana flotante
-    document.getElementById("btnCerrar").addEventListener("click", () => {
+      // Añadir el evento de clic para cerrar la ventana flotante
+      document.getElementById("btnCerrar").addEventListener("click", () => {
+        desplegable.innerHTML = "";
+      });
+    } else {
       desplegable.innerHTML = "";
-    });
+    }
   };
 
-  const cerrarConClickAfuera = () => {
-    desplegable.innerHTML = "";
+  const cerrarConClickAfuera = (event) => {
+    if (
+      !desplegable.contains(event.target) &&
+      !event.target.closest("#ventanaBusqueda") &&
+      !event.target.closest("#ventanaFlotante")
+    ) {
+      desplegable.innerHTML = "";
+    }
   };
-
+  botonLupa.addEventListener("click", (event) => {
+    event.stopPropagation();
+    barraDesplegableBusqueda();
+  });
   if (iconoPersona) {
     iconoPersona.addEventListener("click", (event) => {
       event.stopPropagation();

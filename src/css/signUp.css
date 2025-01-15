@@ -1,0 +1,7 @@
+.fondito {
+  background-image: url(/src/assets/img/fondo-sign-up.gif);
+  background-repeat: no-repeat;
+  opacity: 80%;
+  background-size: cover;
+  padding-top: 20px;
+}
