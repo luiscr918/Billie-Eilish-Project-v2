@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const desplegable = document.getElementById("contenedorVentanasDesplegables");
   const botonLupa = document.getElementById("botonLupa");
   const botonInicio2 = document.getElementById("botonInicioSesion");
-
+  const aplastarAfuera=document.querySelector('body');
+    /**FUNCION QUE CREA LA BARRA DE BUSQUEDA DESPLEGABLE */
   const barraDesplegableBusqueda = () => {
     if (desplegable.innerHTML.trim() === "") {
       desplegable.innerHTML = `
@@ -20,7 +21,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   };
 
-  botonLupa.addEventListener("click", barraDesplegableBusqueda);
+  botonLupa.addEventListener("click", (event) => {
+    event.stopPropagation();
+    barraDesplegableBusqueda();
+  });
 
   /**VENTANA FLOTANTE DE INICIO DE SESION */
   const iconoPersona = document.getElementById("botonSesion");
@@ -98,6 +102,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   };
 
-  iconoPersona.addEventListener("click", desplegarVentana);
-  botonInicio2.addEventListener("click", desplegarVentana);
+  const cerrarConClickAfuera=()=>{
+    desplegable.innerHTML = "";
+  }
+
+  iconoPersona.addEventListener("click", (event) => {
+    event.stopPropagation();
+    desplegarVentana();
+  });
+  botonInicio2.addEventListener("click", (event) => {
+    event.stopPropagation();
+    desplegarVentana();
+  });
+  aplastarAfuera.addEventListener("click",cerrarConClickAfuera);
+
+  
 });
