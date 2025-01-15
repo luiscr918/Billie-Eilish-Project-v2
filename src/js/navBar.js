@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     link.href = "/src/css/fondoPagina.css";
 
     desplegable.innerHTML = `
-        <section id="ventanaFlotante" class="fixed inset-0 flex items-center justify-center z-50">
+        <section  class="fixed inset-0 flex items-center justify-center z-50">
         <div class="flex flex-col items-center justify-center  px-6 py-5 mx-auto md:h-screen lg:py-0">
             <div
                 class=" relative w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 nav-animated-bg   dark:border-emerald-300">
