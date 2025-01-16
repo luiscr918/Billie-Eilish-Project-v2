@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const desplegable = document.getElementById("contenedorVentanasDesplegables");
   const botonLupa = document.getElementById("botonLupa");
   const botonInicio2 = document.getElementById("botonInicioSesion");
-  const aplastarAfuera = document.querySelector("body");
+
   /**FUNCION QUE CREA LA BARRA DE BUSQUEDA DESPLEGABLE */
   const barraDesplegableBusqueda = () => {
     if (desplegable.innerHTML.trim() === "") {
@@ -12,13 +12,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
       <div class="relative">
           <input type="search" id="campoBusqueda" class="block w-full p-4 ps-10 text-sm text-black border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search products or Categories" required />
-          <a href="/src/pages/resultadoBusqueda.html" id="btnBuscar" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</a>
+          <a href="/src/pages/resultadoBusqueda.html"  class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800   font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 "><button id="btnBuscar" >Search</button></a>
       </div>
   </form>
               `;
     } else {
       desplegable.innerHTML = "";
     }
+    const btnBuscar=document.getElementById('btnBuscar');
+    btnBuscar.addEventListener('click',buscar());
   };
 
   /**VENTANA FLOTANTE DE INICIO DE SESION */
@@ -100,15 +102,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   };
 
-  const cerrarConClickAfuera = (event) => {
-    if (
-      !desplegable.contains(event.target) &&
-      !event.target.closest("#ventanaBusqueda") &&
-      !event.target.closest("#ventanaFlotante")
-    ) {
-      desplegable.innerHTML = "";
-    }
-  };
+
   botonLupa.addEventListener("click", (event) => {
     event.stopPropagation();
     barraDesplegableBusqueda();
@@ -126,7 +120,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       desplegarVentana();
     });
   }
-  if (aplastarAfuera) {
-    aplastarAfuera.addEventListener("click", cerrarConClickAfuera);
-  }
+
+  const contenedorBusqueda = document.getElementById("resultado");
+const buscar=() => {
+  contenedorBusqueda.innerHTML = `
+    <p class="text-black">hola como estas </p>
+    `;
+};
 });
