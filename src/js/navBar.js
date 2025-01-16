@@ -10,18 +10,105 @@ document.addEventListener("DOMContentLoaded", (event) => {
       desplegable.innerHTML = `
   <form id="ventanaBusqueda" class="max-w-md my-a mx-auto">   
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-      <div class="relative">
-          <input type="search" id="campoBusqueda" class="block w-full p-4 ps-10 text-sm text-black border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search products or Categories" required />
-          <a href="/src/pages/resultadoBusqueda.html"  class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800   font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 "><button id="btnBuscar" >Search</button></a>
-      </div>
+    <div class="relative">
+        <input 
+          type="search" 
+          id="campoBusqueda" 
+          class="block w-full p-4 ps-10 text-sm text-black border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+          placeholder="Search Product Categories" 
+          required 
+          />
+        <button 
+          id="btnBuscar" 
+          type="button"
+          class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700">
+          Search
+        </button>
+    </div>
   </form>
               `;
+      /**agregar evento al boton search dinamicamente */
+      document.getElementById("btnBuscar").addEventListener("click", () => {
+        const searchInput = document
+          .getElementById("campoBusqueda")
+          .value.trim();
+        if (searchInput) {
+          window.location.href = `/src/pages/resultadoBusqueda.html?query=${encodeURIComponent(
+            searchInput
+          )}`;
+        } else {
+          alert("Campo vacio ingresa un elemento de busqueda");
+        }
+      });
     } else {
       desplegable.innerHTML = "";
     }
-    const btnBuscar=document.getElementById('btnBuscar');
-    btnBuscar.addEventListener('click',buscar());
   };
+  const cargarContenidoRelacionado = (searchQuery) => {
+    const resultado = document.getElementById("resultado");
+
+    if (resultado) {
+      // Rutas de los archivos que contienen las secciones relevantes
+      const rutas = [
+        { archivo: "store.html", id: "normalvinyl" },
+        { archivo: "store.html", id: "limitededitionvinyl" },
+        { archivo: "store.html", id: "misteryboxs" },
+        { archivo: "store.html", id: "hoddieS" },
+        { archivo: "store.html", id: "oversidet-shirts" },
+        { archivo: "store.html", id: "necklaceS" },
+        { archivo: "store.html", id: "shoeS" },
+        { archivo: "store.html", id: "signedthings" },
+      ];
+      // Normalizar el término de búsqueda
+      const queryNormalizado = searchQuery.toLowerCase().replace(/\s+/g, "");
+
+      // Buscar coincidencias
+      const coincidencia = rutas.find(
+        (ruta) => ruta.id.toLowerCase().replace(/\s+/g, "") === queryNormalizado
+      );
+
+      if (coincidencia) {
+        // Obtener contenido desde el archivo
+        fetch(coincidencia.archivo)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Error al cargar el contenido.");
+            }
+            return response.text();
+          })
+          .then((html) => {
+            // Crear un contenedor temporal para buscar el elemento con el ID deseado
+            const contenedor = document.createElement("div");
+            contenedor.innerHTML = html;
+
+            const seccion = contenedor.querySelector(`#${coincidencia.id}`);
+            if (seccion) {
+              resultado.innerHTML = ""; // Limpiar resultados previos
+              resultado.appendChild(seccion.cloneNode(true)); // Insertar la sección relevante
+            } else {
+              resultado.textContent = "No matching section found in the file.";
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+            resultado.textContent = "Error loading content.";
+          });
+      } else {
+        resultado.textContent = "No matching results found.";
+      }
+    }
+  };
+  botonLupa.addEventListener("click", (event) => {
+    event.stopPropagation();
+    barraDesplegableBusqueda();
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const searchQuery = params.get("query");
+
+  if (searchQuery) {
+    cargarContenidoRelacionado(searchQuery);
+  }
 
   /**VENTANA FLOTANTE DE INICIO DE SESION */
   const iconoPersona = document.getElementById("botonSesion");
@@ -93,6 +180,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           </div>
       </section>
               `;
+
       // Añadir el evento de clic para cerrar la ventana flotante
       document.getElementById("btnCerrar").addEventListener("click", () => {
         desplegable.innerHTML = "";
@@ -102,11 +190,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   };
 
-
-  botonLupa.addEventListener("click", (event) => {
-    event.stopPropagation();
-    barraDesplegableBusqueda();
-  });
   if (iconoPersona) {
     iconoPersona.addEventListener("click", (event) => {
       event.stopPropagation();
@@ -120,11 +203,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
       desplegarVentana();
     });
   }
-
-  const contenedorBusqueda = document.getElementById("resultado");
-const buscar=() => {
-  contenedorBusqueda.innerHTML = `
-    <p class="text-black">hola como estas </p>
-    `;
-};
 });
