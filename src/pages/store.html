@@ -162,7 +162,7 @@
                 Normal Vinyl</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6">
-                <div  class="bg-transparent rounded p-4 cursor-pointer hover:-translate-y-1 transition-all relative">
+                <div class="bg-transparent rounded p-4 cursor-pointer hover:-translate-y-1 transition-all relative">
                     <div class="mb-4 bg-transparent rounded p-2">
                         <img src="/src/assets/img/productos/normalVynil1.webp" alt="Normal vinyl 1"
                             class="aspect-[33/35] w-full object-contain" />
@@ -176,7 +176,9 @@
 
                         <div class="flex items-center gap-2 mt-4">
 
-                            <button type="button"
+                            <button id="normalVinyl1"
+                                onclick="agregarProductos('1','Dont Smile At Me Black LP','normal vinyl','22')"
+                                type="button"
                                 class="text-sm px-2 h-9 font-semibold w-full bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br text-white tracking-wide ml-auto outline-none border-none rounded">
                                 Add to cart
                             </button>
@@ -198,7 +200,9 @@
 
                         <div class="flex items-center gap-2 mt-4">
 
-                            <button type="button"
+                            <button id="normalVinyl2"
+                                onclick="agregarProductos('2','WWAFAWSWG? Black Version','normal vinyl','30')"
+                                type="button"
                                 class="text-sm px-2 h-9 font-semibold w-full bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br text-white tracking-wide ml-auto outline-none border-none rounded">
                                 Add to cart
                             </button>
@@ -220,7 +224,9 @@
 
                         <div class="flex items-center gap-2 mt-4">
 
-                            <button type="button"
+                            <button id="normalVinyl3"
+                                onclick="agregarProductos('3','Happier Than Ever Vinyl Color Black','normal vinyl','35')"
+                                type="button"
                                 class="text-sm px-2 h-9 font-semibold w-full bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br text-white tracking-wide ml-auto outline-none border-none rounded">
                                 Add to cart
                             </button>
@@ -242,7 +248,9 @@
 
                         <div class="flex items-center gap-2 mt-4">
 
-                            <button type="button"
+                            <button id="normalVinyl4"
+                                onclick="agregarProductos('4','HIT ME HARD AND SOFT Standard Vinyl','normal vinyl','33')"
+                                type="button"
                                 class="text-sm px-2 h-9 font-semibold w-full bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br text-white tracking-wide ml-auto outline-none border-none rounded">
                                 Add to cart
                             </button>
@@ -1302,6 +1310,7 @@
         </div>
     </footer>
     <script src="/src/js/navBar.js"></script>
+    <script src="/src/js/productos.js"></script>
 </body>
 
 </html>
