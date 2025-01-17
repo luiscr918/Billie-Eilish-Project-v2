@@ -1,3 +1,11 @@
 {
-  "productos": []
+  "productos": [
+    {
+      "id": "4",
+      "producto": "HIT ME HARD AND SOFT Standard Vinyl",
+      "categoria": "normal vinyl",
+      "precio": "33",
+      "cantidad": 1
+    }
+  ]
 }
